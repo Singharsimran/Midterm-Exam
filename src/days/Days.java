@@ -5,7 +5,6 @@
 package days;
 
 import java.util.Scanner;
-
 /**This class takes String input from user 
  * and calls method  to print the 
  * name of the day.
@@ -16,19 +15,27 @@ import java.util.Scanner;
  *
  * @author sivagamasrinivasan
  */
+enum Weekday {
+    ONE,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE
+}
+
 public class Days {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-         
-    Scanner in =new Scanner(System.in);
-    System.out.println("Enter the day number (one,two,three,four,five) in string");
-    String code = in.next();
-    Weekdays t= new Weekdays();
-    t.nameOfDay(code); 
-    }// TODO code application logic here
-    
-    
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the day number (1-5):");
+        int dayNumber = in.nextInt();
+
+        if (dayNumber >= 1 && dayNumber <= 5) {
+            Weekday[] weekdays = Weekday.values();
+            Weekday selectedDay = weekdays[dayNumber - 1];
+            System.out.println("Selected day: " + selectedDay);
+        } else {
+            System.out.println("Invalid day number!");
+        }
+    }
 }
